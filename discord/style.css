@@ -1,0 +1,291 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  background-color: #26262b;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2fr 2fr;
+  grid-template-areas:
+    "top top"
+    "over over"
+    "regels regels";
+}
+
+#top {
+  grid-area: top;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "nav nav"
+    "titel titel"
+    "knop knop";
+  background: linear-gradient(312deg, #26262b, #222327);
+  background-size: 400% 400%;
+  -webkit-animation: top 21s ease infinite;
+  -moz-animation: top 21s ease infinite;
+  animation: top 21s ease infinite;
+}
+
+#over {
+  background: linear-gradient(312deg, #9ea3fc, #8b96f2);
+  padding: 40px;
+  grid-area: over;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 8fr;
+  grid-template-areas:
+    "header header"
+    "text text"
+    "widget widget";
+}
+
+#over .widget {
+  grid-area: widget;
+  width: 80%;
+  justify-self: center;
+}
+
+#regels {
+  grid-area: regels;
+  grid-gap: 15px;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "header header"
+    "text text"
+    "knop knop";
+  background: linear-gradient(312deg, #26262b, #222327);
+  background-size: 400% 400%;
+  -webkit-animation: top 21s ease infinite;
+  -moz-animation: top 21s ease infinite;
+  animation: top 21s ease infinite;
+}
+
+#regels h2 {
+  color: white;
+}
+
+#regels ul {
+  color: #b6bdc6;
+  font-size: 1.1em;
+  font-stretch: 200%;
+}
+
+h2 {
+  grid-area: header;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 2.4em
+}
+
+p, ul {
+  grid-area: text;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 1.3em;
+}
+
+p a {
+  text-decoration: none;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: #4188f4;
+}
+
+.deelnemen {
+  grid-area: knop;
+  justify-self: center;
+  align-self: center;
+  width: auto;
+  border-radius: 40px;
+  background-color: #42bff4;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5em;
+  margin-bottom: 30px;
+  cursor: pointer;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.deelnemen:hover {
+  background: linear-gradient(90deg, #42bff4, #f44141);
+  background-size: 400% 400%;
+  -webkit-animation: knopselectie 30s ease infinite;
+  -moz-animation: knopselectie 30s ease infinite;
+  animation: knopselectie 30s ease infinite;
+}
+
+.nav {
+  display: flex;
+  height: auto;
+  grid-area: nav;
+  justify-self: center;
+}
+
+.nav a {
+  margin: 20px;
+  text-decoration: none;
+  font-size: 1.0em;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: white;
+}
+
+.titel {
+  margin-top: auto;
+  margin-bottom: auto;
+  grid-area: titel;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 3em;
+  font-weight: 30;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #f44141;
+  background-image: -webkit-linear-gradient(0deg, #f44141, #f4e841);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: hue 10s infinite linear;
+}
+
+@-webkit-keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+
+  to {
+    -webkit-filter: hue-rotate(-360deg);
+  }
+}
+
+@-webkit-keyframes top {
+  0% {
+    background-position: 0% 73%
+  }
+
+  50% {
+    background-position: 100% 28%
+  }
+
+  100% {
+    background-position: 0% 73%
+  }
+}
+
+@-moz-keyframes top {
+  0% {
+    background-position: 0% 73%
+  }
+
+  50% {
+    background-position: 100% 28%
+  }
+
+  100% {
+    background-position: 0% 73%
+  }
+}
+
+@keyframes top {
+  0% {
+    background-position: 0% 73%
+  }
+
+  50% {
+    background-position: 100% 28%
+  }
+
+  100% {
+    background-position: 0% 73%
+  }
+}
+
+@-webkit-keyframes knopselectie {
+  0% {
+    background-position: 0% 73%
+  }
+
+  1% {
+    background-position: 100% 28%
+  }
+
+  100% {
+    background-position: 0% 73%
+  }
+}
+
+@-moz-keyframes knopselectie {
+  0% {
+    background-position: 0% 73%
+  }
+
+  1% {
+    background-position: 100% 28%
+  }
+
+  100% {
+    background-position: 0% 73%
+  }
+}
+
+@keyframes knopselectie {
+  0% {
+    background-position: 0% 73%
+  }
+
+  1% {
+    background-position: 100% 28%
+  }
+
+  100% {
+    background-position: 0% 73%
+  }
+}
+
+.footer {
+  grid-area: footer;
+}
+
+@media screen and (min-width: 736px) {
+  .titel {
+    font-size: 6em;
+  }
+
+  #regels {
+    height: 100%;
+    grid-area: regels;
+    grid-gap: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      ". header"
+      ". text"
+      "knop knop";
+    background: linear-gradient(312deg, #26262b, #222327);
+    background-size: 400% 400%;
+    -webkit-animation: top 21s ease infinite;
+    -moz-animation: top 21s ease infinite;
+    animation: top 21s ease infinite;
+  }
+
+  .deelnemen {
+    width: 35%;
+  }
+
+  #regels .deelnemen {
+    margin: 50px;
+  }
+
+  .nav a {
+    margin: 70px;
+    justify-self: center;
+    text-decoration: none;
+    font-size: 1.3em;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    color: white;
+  }
+}

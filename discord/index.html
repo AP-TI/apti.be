@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-u">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.0.3/dist/sweetalert2.all.min.js"
+    integrity="sha256-6GIlpCrOEXn1U+tHsUavBcFyzr8pWaSnWmtoZYCDAdU=" crossorigin="anonymous"></script>
+  <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+  <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+  <title>APTI - Community Discord</title>
+  <meta name="theme-color" content="#25252a">
+  <link rel='shortcut icon' type='image/x-icon' href='favicon.ico'>
+</head>
+
+<body>
+  <div class="wrapper">
+    <section id="top">
+      <nav class="nav">
+        <a href="#over">Over</a>
+        <!-- <a href="#regels">Regels</a> -->
+        <a href="stats">Statistieken</a>
+      </nav>
+      <h1 class="titel">APTI - Community Discord</h1>
+      <button class="deelnemen">Ik doe mee!</button>
+    </section>
+    <section id="over">
+      <h2>Over</h2>
+      <p>Gemaakt door de <a href="https://github.com/AP-TI-2018-2019/AP_2018-2019/graphs/contributors"
+          target="_blank">contributors</a> van de <a href="https://github.com/AP-TI-2018-2019/AP_2018-2019"
+          target="_blank">APTI GitHub-repo</a> met als doel een virtuele plek te cre&euml;ren waar studenten samenkomen
+        om elkaar te helpen.</p>
+      <iframe class="widget" src="https://discordapp.com/widget?id=538812803944022017&theme=dark" width="100%"
+        height="80%" allowtransparency="true" frameborder="0"></iframe>
+    </section>
+    <!-- <section id="regels">
+      <h2>Regels</h2>
+      <ul>
+        <li></li>
+      </ul>
+      <button class="deelnemen">Ik doe mee!</button>
+    </section> -->
+  </div>
+</body>
+<script>
+  $('.deelnemen').click(function () {
+    var num1 = Math.floor(Math.random() * 10 + 1);
+    var num2 = Math.floor(Math.random() * 10 + 1)
+    Swal.fire({
+      title: 'Bewijs dat je geen robot bent door de volgende rekensom uit te voeren: ',
+      text: num1 + ' + ' + num2,
+      input: 'text',
+      inputAttributes: {
+        autocapitalize: 'off'
+      },
+      showCancelButton: true,
+      confirmButtonText: 'Ontvang invite',
+      showLoaderOnConfirm: true,
+      preConfirm: (input) => {
+        return fetch(`invite.php/?input=${input}&num1=${num1}&num2=${num2}`)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(response.statusText)
+            }
+            return response.json()
+          })
+          .catch(error => {
+            Swal.showValidationMessage(
+              `Request failed: ${error}`
+            )
+          })
+      },
+      allowOutsideClick: () => !Swal.isLoading()
+    }).then((result) => {
+      if (result.value.status == 1) {
+        Swal.fire({
+          showConfirmButton: false,
+          title: `${result.value.text}`,
+          html: '<a href="' + `${result.value.invite}` + '">Deelnemen</a> '
+        })
+      } else if (result.value.status == 0) {
+        Swal.fire({
+          title: 'Mislukt :('
+        })
+      }
+    })
+  })
+</script>
+
+</html>
