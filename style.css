@@ -1,0 +1,30 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.logo{
+    width: 30%;
+    margin: auto;
+    cursor: pointer;
+}
+
+#app{
+    height: 90vh;
+    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.grid{
+    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+@media (orientation: landscape){
+        #app{
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 10%;
+        }
+        .grid{
+            grid-template-columns: 1fr;
+        }
+}
