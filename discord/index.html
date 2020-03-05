@@ -25,7 +25,7 @@
         <a href="stats">Statistieken</a>
       </nav>
       <h1 class="titel">APTI - Community Discord</h1>
-      <button class="deelnemen">Ik doe mee!</button>
+      <a class="deelnemen" href="https://discord.gg/jHMH4Ga">Ik doe mee!</a>
     </section>
     <section id="over">
       <h2>Over</h2>
@@ -45,49 +45,5 @@
     </section> -->
   </div>
 </body>
-<script>
-  $('.deelnemen').click(function () {
-    var num1 = Math.floor(Math.random() * 10 + 1);
-    var num2 = Math.floor(Math.random() * 10 + 1)
-    Swal.fire({
-      title: 'Bewijs dat je geen robot bent door de volgende rekensom uit te voeren: ',
-      text: num1 + ' + ' + num2,
-      input: 'text',
-      inputAttributes: {
-        autocapitalize: 'off'
-      },
-      showCancelButton: true,
-      confirmButtonText: 'Ontvang invite',
-      showLoaderOnConfirm: true,
-      preConfirm: (input) => {
-        return fetch(`invite.php/?input=${input}&num1=${num1}&num2=${num2}`)
-          .then(response => {
-            if (!response.ok) {
-              throw new Error(response.statusText)
-            }
-            return response.json()
-          })
-          .catch(error => {
-            Swal.showValidationMessage(
-              `Request failed: ${error}`
-            )
-          })
-      },
-      allowOutsideClick: () => !Swal.isLoading()
-    }).then((result) => {
-      if (result.value.status == 1) {
-        Swal.fire({
-          showConfirmButton: false,
-          title: `${result.value.text}`,
-          html: '<a href="' + `${result.value.invite}` + '">Deelnemen</a> '
-        })
-      } else if (result.value.status == 0) {
-        Swal.fire({
-          title: 'Mislukt :('
-        })
-      }
-    })
-  })
-</script>
 
 </html>
