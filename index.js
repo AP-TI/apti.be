@@ -4,7 +4,8 @@ Vue.component('keuze', {
     ,
     props: {
         naam: String,
-        bestandnaam: String
+        bestandnaam: String,
+        link: String
     },
     computed: {
         bestand: function(){
@@ -13,7 +14,7 @@ Vue.component('keuze', {
     },
     methods: {
         redirect: function(){
-            window.location = this.naam;
+            window.location = this.link;
         }
     }
 })
