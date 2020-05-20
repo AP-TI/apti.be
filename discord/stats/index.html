@@ -9,16 +9,55 @@
 </head>
 
 <body>
+    <style>
+        div.tooltip {
+            position: absolute;
+            text-align: center;
+            width: 115px;
+            height: 35px;
+            padding: 2px;
+            font: 12px sans-serif;
+            background: lightsteelblue;
+            border: 0px;
+            border-radius: 8px;
+            pointer-events: none;
+        }
+
+        div.row {
+            height: auto;
+            width: 1100px;
+            border: 2px solid black;
+            overflow: scroll;
+        }
+
+        svg {
+            margin: 10px;
+        }
+
+        div.row2 {
+            height: auto;
+            width: 560px;
+            border: 2px solid black;
+        }
+    </style>
 
     <div class="container">
-        <div class="row">
-            <h1>Visuele weergave van de APTI-Discord server</h1>
-            <div id="data-here"></div>
+        <h1>Visuele weergave van het aantal online serverleden binnen de <img src="./assets/apti.svg"
+                alt="APTI" />-Discord server</h1>
+        <div id="row" class="row">
+            <div id="full"></div>
+        </div>
+        <br />
+        <h1>Grafiek van het laatste uur</h1>
+        <div id="row2" class="row2">
+            <div id="hour"></div>
         </div>
     </div>
 
     <script src="https://d3js.org/d3.v5.js"></script>
-    <script src="js/d3.js"></script>
+    <script src="js/funct.js"></script>
+    <script src="js/full.js"></script>
+    <script src="js/hour.js"></script>
 
 </body>
 
